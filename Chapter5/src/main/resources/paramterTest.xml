@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="param">
+<test name="param" enabled="false">
+    <classes>
+        <class name="com.course.testng.paramterTest.ParamterTest"/>
+        <parameter name="name" value="Tom"></parameter>
+        <parameter name="age" value="10"></parameter>
+
+    </classes>
+</test>
+
+<test name="dataProvider">
+    <classes>
+        <class name="com.course.testng.paramterTest.DataProvider" />
+    </classes>
+</test>
+</suite>
