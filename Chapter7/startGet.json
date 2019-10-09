@@ -1,0 +1,27 @@
+[
+  {
+    "description": "这是 GET 例子",
+    "request": {
+      "uri": "/GetDemo",
+      "method": "GET"
+    },
+    "response": {
+      "text": "GET mock 响应内容"
+    }
+  },
+
+  {
+    "description": "模拟一个带参数的 Get 请求",
+    "request":{
+      "uri": "/getwithparam",
+      "method": "GET",
+      "queries": {
+        "name": "huhansan",
+        "age": "18"
+      }
+    },
+    "response": {
+      "text": "huhansan"
+    }
+  }
+]
