@@ -1,0 +1,29 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="手写接口测试套件">
+    <test name="测试模块">
+        <classes>
+            <class name="com.tester.extend.demo.TestMethodsDemo">
+                <methods>
+                    <include name="test1" />
+                    <include name="test2" />
+                    <include name="test3" />
+                    <include name="logDemo" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Anather">
+        <classes>
+            <class name="com.tester.extend.demo.testDemo">
+                <methods>
+                    <include name="test" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+<!--    添加监听，形成日志-->
+    <listeners>
+        <listener class-name="com.vimalselvam.testng.listener.ExtentTestNgFormatter"/>
+    </listeners>
+</suite>
