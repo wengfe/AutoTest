@@ -30,7 +30,7 @@
     "request": {
       "uri": "/post/with/cookie",
       "cookies": {
-        "isExeit": "false"
+        "login": "true"
       },
 
       "json": {
