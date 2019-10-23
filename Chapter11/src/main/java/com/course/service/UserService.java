@@ -14,4 +14,16 @@ public class UserService {
     public User getUserById(int id){
         return userDAO.getUserById(id);
     }
+
+    public int addUser(User user){
+        return userDAO.addUser(user);
+    }
+
+    public int updateUserSexById(String sex, int id){
+        return userDAO.updateUserSexById(sex, id);
+    }
+
+    public int deleteUserById(int id){
+        return userDAO.deleteUserById(id);
+    }
 }

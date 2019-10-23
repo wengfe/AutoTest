@@ -8,4 +8,10 @@ import org.springframework.stereotype.Service;
 @Mapper
 public interface UserDAO {
     User getUserById(int id);
+
+    int addUser(User user);
+
+    int updateUserSexById(String sex, int id);
+
+    int deleteUserById(int id);
 }
