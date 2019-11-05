@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<suite name="用户管理测试套件">
+    <test name="用户管理测试用例">
+        <classes>
+            <class name="com.course.cases.LoginTest">
+                <method>
+                    <include name="loginTrue"/>
+                    <include name="loginFalse"/>
+                </method>
+            </class>
+
+            <class name="com.course.cases.AddUserTest">
+                <method>
+                    <include name="addUser"/>
+                </method>
+            </class>
+
+            <class name="com.course.cases.GetUserInfoTest">
+                <method>
+                    <include name="getUserListInfo"/>
+                </method>
+            </class>
+
+            <class name="com.course.cases.GetUserInfoListTest">
+                <method>
+                    <include name="getUserListInfo"/>
+                </method>
+            </class>
+
+            <class name="com.course.cases.UpdateUserInfoTest">
+                <method>
+                    <include name="updateUserName"/>
+                    <include name="deleteUser"/>
+                </method>
+            </class>
+        </classes>
+    </test>
+
+    <!--    添加监听，形成日志-->
+    <listeners>
+        <listener class-name="com.vimalselvam.testng.listener.ExtentTestNgFormatter" />
+<!--        未翻墙使用该 报告模板 config 目录下的类生成的报告，信息不完全 -->
+<!--        <listener class-name="com.course.config.ExtentTestNGIReporterListener" />-->
+    </listeners>
+
+</suite>
