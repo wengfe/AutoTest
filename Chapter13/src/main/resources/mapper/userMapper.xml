@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.course.usertes">
+    <select id="login" parameterType="com.course.usertest.model.User" resultType="int">
+        select count(*) from user where userName=#{userName} and password=#{password}
+    </select>
+
+    <insert id="addUser" parameterType="com.course.usertest.model.User">
+        insert into user(userName,password,age,sex,permission,isDelete)
+        values (#{userName},#{password},#{age},#{sex},#{permission},#{isDelete})
+    </insert>
+
+<!--    获取用户 sql-->
+<!--    trim prefixOverrides 标签预处理， if(null != id and ''!= id)  则 添加搜索条件 and id=#{id} -->
+    <select id="getUserInfo" parameterType="com.course.usertest.model.User" resultType="com.course.usertest.model.User">
+        select * from user
+        <trim prefix="where" prefixOverrides="and">
+            <if test="null != id and ''!= id">
+                and id = #{id}
+            </if>
+            <if test="null != userName and '' != useName">
+                and userName=#{userName}
+            </if>
+            <if test="null != password and '' != password">
+                and password=#{password}
+            </if>
+            <if test="null != age and '' != age">
+                and age=#{age}
+            </if>
+            <if test="null != sex and '' != sex">
+                and sex=#{sex}
+            </if>
+            <if test="null != permission and '' != permission">
+                and permission=#{permission}
+            </if>
+            <if test="null != isDelete and '' != isDelete">
+                and isDelete=#{isDelete}
+            </if>
+        </trim>
+    </select>
+
+<!--    更新/ 删除用户信息-->
+<!--    trim suffixOverrides 标签尾处理 -->
+    <update id="updateUserInfo" parameterType="com.course.usertest.model.User">
+        update user
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="null != userName and '' != useName">
+                and userName=#{userName},
+            </if>
+            <if test="null != password and '' != password">
+                and password=#{password},
+            </if>
+            <if test="null != age and '' != age">
+                and age=#{age},
+            </if>
+            <if test="null != sex and '' != sex">
+                and sex=#{sex},
+            </if>
+            <if test="null != permission and '' != permission">
+                and permission=#{permission},
+            </if>
+            <if test="null != isDelete and '' != isDelete">
+                and isDelete=#{isDelete},
+            </if>
+        </trim>
+    </update>
+</mapper>
