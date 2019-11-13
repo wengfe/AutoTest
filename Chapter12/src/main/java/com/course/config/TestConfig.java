@@ -12,6 +12,6 @@ public class TestConfig {
     public static String addUserUrl;
 
     public static CloseableHttpClient httpClient;
-    public static HttpClientContext context;
+    public static HttpClientContext context = HttpClientContext.create();
     public static CookieStore cookieStore;
 }
