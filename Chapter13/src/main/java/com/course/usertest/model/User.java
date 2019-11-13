@@ -11,4 +11,6 @@ public class User {
     private int sex;
     private int permission;
     private int isDelete;
+
+
 }

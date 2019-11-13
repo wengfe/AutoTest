@@ -32,12 +32,12 @@ public class UserController {
     @RequestMapping(path = {"/login"}, method = RequestMethod.POST)
     public Boolean login(HttpServletResponse response, @RequestBody User user){
         int i = template.selectOne("login", user);
-        Cookie cookie = new Cookie("login", "true");
-        response.addCookie(cookie);
         log.info("查询到的结果是： " + i);
 //        log.info("查询到的结果是： " + i);
         if (i==1){
             log.info(("登录的用户是： " + user.getUserName()));
+            Cookie cookie = new Cookie("login", "true");
+            response.addCookie(cookie);
             return true;
         }
         return false;
@@ -76,7 +76,7 @@ public class UserController {
 
 
     @ApiOperation(value = "获取用户(列表)信息接口",httpMethod = "POST")
-    @RequestMapping(path = {"getUserInfoList"}, method = RequestMethod.POST)
+    @RequestMapping(path = {"/getUserList"}, method = RequestMethod.POST)
     public List<User> getUserInfoList(HttpServletRequest request, @RequestBody User user){
         Boolean isLogin = verifyCookie(request);
         if(isLogin==true){
@@ -89,7 +89,7 @@ public class UserController {
     }
 
     @ApiOperation(value = "更新/删除用户接口",httpMethod = "POST")
-    @RequestMapping(path = {"updateUserInfo"}, method = RequestMethod.POST)
+    @RequestMapping(path = {"/updateUserInfo"}, method = RequestMethod.POST)
     public int updateUserInfo(HttpServletRequest request, @RequestBody User user){
         Boolean isLogin = verifyCookie(request);
         int i = 0;
