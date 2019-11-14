@@ -2,7 +2,7 @@
 <configuration debug="false">
     <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
     <property name="LOG_HOME" value="/Users/fuyiweng/Documents/iMacDocuments/study/Java/AutoTest/log" />
-    <!--    <property name="LOG_HOME" value="/Users/wengfuyi/Documents/iMacDocuments/study/Java/AutoTest/Chapter13/src/main/resources/log" />-->
+<!--        <property name="LOG_HOME" value="/Users/wengfuyi/Documents/iMacDocuments/study/Java/AutoTest/log" />-->
     <!-- 控制台输出 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
