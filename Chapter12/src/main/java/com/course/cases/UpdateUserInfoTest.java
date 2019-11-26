@@ -26,9 +26,11 @@ public class UpdateUserInfoTest {
         System.out.println(TestConfig.updateUserInfoUrl);
 
         int result = getResult(updateUserInfoCase);
-        sleep(3000);
+        sleep(5000);
 //        获取数据库用例中的期望值
-        User user = session.selectOne(updateUserInfoCase.getExpected(), updateUserInfoCase);
+//        重新获取sql 连接，让上一步的 sql 先完成请求
+        User user = DatabaseUtil.getSqlSession().selectOne(updateUserInfoCase.getExpected(), updateUserInfoCase);
+
 
         Assert.assertNotNull(user);
         Assert.assertNotNull(result);
@@ -42,9 +44,11 @@ public class UpdateUserInfoTest {
         System.out.println(TestConfig.updateUserInfoUrl);
 
         int result = getResult(updateUserInfoCase);
-        sleep(1000);
+        sleep(5000);
 //        获取数据库用例中的期望值
-        User user = session.selectOne(updateUserInfoCase.getExpected(), updateUserInfoCase);
+//       重新获取sql 连接，让上一步的 sql 先完成请求
+        User user = DatabaseUtil.getSqlSession().selectOne(updateUserInfoCase.getExpected(), updateUserInfoCase);
+        System.out.println("+++++++++++++++" + user);
 
         Assert.assertNotNull(user);
         Assert.assertNotNull(result);

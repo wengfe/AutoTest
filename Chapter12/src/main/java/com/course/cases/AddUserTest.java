@@ -28,7 +28,8 @@ public class AddUserTest {
 
 //        发请求 获取结果
         String result = getResult(addUserCase);
-        sleep(3000);
+        sleep(2000);
+//       重新获取sql 连接，让上一步的 sql 先完成请求
         User user = DatabaseUtil.getSqlSession().selectOne("addUser", addUserCase);
 //       验证返回结果
         System.out.println(user.toString());
